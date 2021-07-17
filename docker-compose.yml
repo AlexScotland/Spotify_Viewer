@@ -1,0 +1,14 @@
+version: "3"
+services:
+ spotify:
+   build: .
+   ports:
+     - "80:8000"
+   restart: always
+   networks:
+     - spot
+# Remove Volumes for production
+   volumes:
+     - "./app/bin:/spotify-web"
+networks:
+    spot:

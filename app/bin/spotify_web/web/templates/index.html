@@ -1,0 +1,28 @@
+{% extends "template.html" %}
+{% block content %}
+
+    <div id="cd" class="circle gray">
+        <div class="circle-inner">
+        </div>
+    </div>
+    <div class="record black">
+    </div>
+    <div id="tray" class="text-box light-gray">
+        <div class="Name">
+            Sample Artist
+        </div>
+        <div class="song_deets">
+            <span id="Artist">Song Of Damned</span> - <span id="album">Heckin Frick</span>
+        </div>
+    </div>
+    
+<script>
+    anime ({
+        targets: "#cd",
+        translateY: [
+            {value:-40, duration:1500, easing: 'linear'},
+            {value:0, duration:1500, delay: 5000, easing: 'linear'},
+        ]
+    }); 
+</script>
+{% endblock %}
