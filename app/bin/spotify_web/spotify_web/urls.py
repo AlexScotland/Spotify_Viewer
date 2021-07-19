@@ -14,10 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from web import views
+from django.urls import path, include
+from web import views as web_views
+from spotify_web_api import views
+from rest_framework import routers
+
+
+router = routers.DefaultRouter()
+router.register(r'current_song', views.SpotifyData, basename="current song")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index),
+    path('', web_views.index),
+    path('api/', include((router.urls))),
 ]
